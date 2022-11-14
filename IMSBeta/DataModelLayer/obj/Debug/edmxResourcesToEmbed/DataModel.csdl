@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="inventorydbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UserFamily" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="UserTel" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+    <Property Name="UserUserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UserPassword" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="UserAge" Type="Byte" />
+    <Property Name="UserGender" Type="Byte" />
+    <Property Name="UserActive" Type="Byte" />
+  </EntityType>
+  <EntityContainer Name="inventorydbEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <EntitySet Name="Vw_Users" EntityType="inventorydbModel.Vw_Users" />
+  </EntityContainer>
+  <EntityType Name="Vw_Users">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserActive" Type="Byte" />
+    <Property Name="UserGender" Type="Byte" />
+    <Property Name="UserAge" Type="Byte" />
+    <Property Name="UserPassword" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="UserUserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UserTel" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+    <Property Name="UserFamily" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserGenderShow" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+    <Property Name="UserActiveShow" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+  </EntityType>
+</Schema>

@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="inventorydbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="50" />
+    <Property Name="UserFamily" Type="nvarchar" MaxLength="100" />
+    <Property Name="UserTel" Type="nvarchar" MaxLength="11" />
+    <Property Name="UserUserName" Type="nvarchar" MaxLength="50" />
+    <Property Name="UserPassword" Type="nvarchar" MaxLength="128" />
+    <Property Name="UserAge" Type="tinyint" />
+    <Property Name="UserGender" Type="tinyint" />
+    <Property Name="UserActive" Type="tinyint" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'inventorydb.dbo.Vw_Users' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Vw_Users">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserActive" Type="tinyint" />
+    <Property Name="UserGender" Type="tinyint" />
+    <Property Name="UserAge" Type="tinyint" />
+    <Property Name="UserPassword" Type="nvarchar" MaxLength="128" />
+    <Property Name="UserUserName" Type="nvarchar" MaxLength="50" />
+    <Property Name="UserTel" Type="nvarchar" MaxLength="11" />
+    <Property Name="UserFamily" Type="nvarchar" MaxLength="100" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="50" />
+    <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserGenderShow" Type="varchar" MaxLength="6" />
+    <Property Name="UserActiveShow" Type="varchar" MaxLength="8" />
+  </EntityType>
+  <EntityContainer Name="inventorydbModelStoreContainer">
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Vw_Users" EntityType="Self.Vw_Users" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Vw_Users].[UserActive] AS [UserActive], 
+    [Vw_Users].[UserGender] AS [UserGender], 
+    [Vw_Users].[UserAge] AS [UserAge], 
+    [Vw_Users].[UserPassword] AS [UserPassword], 
+    [Vw_Users].[UserUserName] AS [UserUserName], 
+    [Vw_Users].[UserTel] AS [UserTel], 
+    [Vw_Users].[UserFamily] AS [UserFamily], 
+    [Vw_Users].[UserName] AS [UserName], 
+    [Vw_Users].[UserID] AS [UserID], 
+    [Vw_Users].[UserGenderShow] AS [UserGenderShow], 
+    [Vw_Users].[UserActiveShow] AS [UserActiveShow]
+    FROM [dbo].[Vw_Users] AS [Vw_Users]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>
